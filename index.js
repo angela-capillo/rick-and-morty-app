@@ -37,11 +37,13 @@ const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
+pagination.textContent = page + "/42"; //this needs to be dynamic? how?
 
 prevButton.addEventListener("click", () => {
   if (page > 1) {
     page--;
     fetchCharacters();
+    pagination.textContent = page + "/" + maxPage;
   }
 });
 
@@ -49,9 +51,11 @@ nextButton.addEventListener("click", () => {
   if (page < maxPage) {
     page++;
     fetchCharacters();
+    pagination.textContent = page + "/" + maxPage;
   }
 });
 
+// this has to happen before the event listener
 // function disablePrevButton() {
 //   if (page === 1) {
 //     prevButton.disabled = true;
