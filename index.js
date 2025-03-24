@@ -6,6 +6,7 @@ let page = 1;
 let searchQuery = "";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
+
 async function fetchCharacters() {
   let searchFullName = searchQuery ? "&name=" + encodeURIComponent(searchQuery) : "";
   const response = await fetch(
@@ -14,6 +15,7 @@ async function fetchCharacters() {
   const data = await response.json();
   let characterData = data.results;
   maxPage = data.info.pages;
+  updatePagination();
   cardContainer.innerHTML = "";
   characterData.forEach((character) => {
     let newCharacterCard = createCharacterCard(character);
@@ -40,7 +42,7 @@ prevButton.addEventListener("click", () => {
   if (page > 1) {
     page--;
     fetchCharacters();
-    pagination.textContent = page + "/" + maxPage;
+    //pagination.textContent = page + "/" + maxPage;
   }
 });
 
@@ -48,7 +50,7 @@ nextButton.addEventListener("click", () => {
   if (page < maxPage) {
     page++;
     fetchCharacters();
-    pagination.textContent = page + "/" + maxPage;
+    //pagination.textContent = page + "/" + maxPage;
   }
 });
 
@@ -63,6 +65,17 @@ form.addEventListener("submit", (event) => {
   console.log(searchQuery);
   fetchCharacters();
 });
+
+function updatePaginationNumbers() {
+  pagination.textContent = page + "/" + maxPage;
+};
+
+function updatePagination() {
+  prevButton.disabled = page === 1;
+  nextButton.disabled = page === maxPage;
+  updatePaginationNumbers()
+};
+
 
 // this has to happen before the event listener
 // function disablePrevButton() {
@@ -82,3 +95,5 @@ form.addEventListener("submit", (event) => {
 //   }
 // }
 // disableNextButton();
+// just make one shorter function and call it in the fetchChar function
+// one function to update pagination to update both buttons and pagination
