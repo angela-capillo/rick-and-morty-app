@@ -1,9 +1,9 @@
 import createCharacterCard from "./components/CharacterCard/CharacterCard.js";
 
-newCard = createCharacterCard();
+newCharacterCard = createCharacterCard();
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
-cardContainer.append(newCard);
+cardContainer.append(newCharacterCard);
 
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
