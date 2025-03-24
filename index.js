@@ -36,13 +36,10 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 const form = document.querySelector('[data-js="search-bar-container"]');
 
-pagination.textContent = page + "/" + maxPage; //this needs to be dynamic? how?
-
 prevButton.addEventListener("click", () => {
   if (page > 1) {
     page--;
     fetchCharacters();
-    //pagination.textContent = page + "/" + maxPage;
   }
 });
 
@@ -50,7 +47,6 @@ nextButton.addEventListener("click", () => {
   if (page < maxPage) {
     page++;
     fetchCharacters();
-    //pagination.textContent = page + "/" + maxPage;
   }
 });
 
@@ -58,8 +54,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
-  //console.log(data);
-  //console.log(data.query);
   searchQuery = data.query;
   page = 1;
   console.log(searchQuery);
@@ -73,27 +67,5 @@ function updatePaginationNumbers() {
 function updatePagination() {
   prevButton.disabled = page === 1;
   nextButton.disabled = page === maxPage;
-  updatePaginationNumbers()
+  updatePaginationNumbers();
 };
-
-
-// this has to happen before the event listener
-// function disablePrevButton() {
-//   if (page === 1) {
-//     prevButton.disabled = true;
-//   } else {
-//     prev.disabled = false;
-//   }
-// }
-// disablePrevButton();
-
-// function disableNextButton() {
-//   if (page === maxPage) {
-//     nextButton.disabled = true;
-//   } else {
-//     next.disabled = false;
-//   }
-// }
-// disableNextButton();
-// just make one shorter function and call it in the fetchChar function
-// one function to update pagination to update both buttons and pagination
