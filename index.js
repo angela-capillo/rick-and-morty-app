@@ -1,6 +1,7 @@
 import createCharacterCard from "./components/CharacterCard/CharacterCard.js";
 
-newCharacterCard = createCharacterCard();
+let newCharacterCard = createCharacterCard();
+console.log(newCharacterCard);
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 cardContainer.append(newCharacterCard);

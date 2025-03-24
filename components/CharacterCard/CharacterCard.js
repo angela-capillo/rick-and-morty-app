@@ -22,4 +22,5 @@ export default function createCharacterCard() {
             </dl>
           </div>
     `;
+    return characterCard;
 };
