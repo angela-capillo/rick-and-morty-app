@@ -32,7 +32,7 @@ fetchCharacters();
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
-const searchBar = document.querySelector('[data-js="search-bar-container"]');
+const searchBar = document.querySelector('[data-js="search-bar"]');
 const navigation = document.querySelector('[data-js="navigation"]');
 //const prevButton = document.querySelector('[data-js="button-prev"]');
 //const nextButton = document.querySelector('[data-js="button-next"]');
@@ -100,7 +100,7 @@ const form = SearchBar(search);
 
 // appending the form to the search bar div
 
-searchBar.append(form);
+searchBarContainer.append(form);
 
 
 // form.addEventListener("submit", (event) => {
