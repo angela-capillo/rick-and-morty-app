@@ -1,4 +1,5 @@
 import createCharacterCard from "./components/CharacterCard/CharacterCard.js";
+import NavButton from "./components/NavButton/NavButton.js";
 
 // States
 let maxPage = 1;
@@ -31,24 +32,51 @@ const searchBarContainer = document.querySelector(
 );
 const searchBar = document.querySelector('[data-js="search-bar"]');
 const navigation = document.querySelector('[data-js="navigation"]');
-const prevButton = document.querySelector('[data-js="button-prev"]');
-const nextButton = document.querySelector('[data-js="button-next"]');
+//const prevButton = document.querySelector('[data-js="button-prev"]');
+//const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 const form = document.querySelector('[data-js="search-bar-container"]');
 
-prevButton.addEventListener("click", () => {
+// prevButton.addEventListener("click", () => {
+//   if (page > 1) {
+//     page--;
+//     fetchCharacters();
+//   }
+// });
+
+// nextButton.addEventListener("click", () => {
+//   if (page < maxPage) {
+//     page++;
+//     fetchCharacters();
+//   }
+// });
+
+// creating the functions that need to happen "onClick"
+
+function previousPage() {
   if (page > 1) {
     page--;
     fetchCharacters();
   }
-});
+};
 
-nextButton.addEventListener("click", () => {
-  if (page < maxPage) {
+function nextPage() {
+    if (page < maxPage) {
     page++;
     fetchCharacters();
   }
-});
+};
+
+//then I would render the buttons in index.js:
+
+const prevButton = NavButton(previous, "button button--prev", previousPage);
+const nextButton = NavButton(next, "button button--next", nextPage);
+
+
+
+
+
+
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
