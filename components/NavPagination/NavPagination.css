@@ -1,10 +1,34 @@
 .navigation {
-  height: 30px;
+  width: 100%;
+  height: 60px;
+  padding: 8px;
   display: grid;
-  grid-template-columns: 100px 100px 100px;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #bbb;
 }
 
 .navigation__pagination {
   display: grid;
   place-items: center;
+  background-color: #080a08;
+  border: 4px solid grey;
+  border-radius: 16px;
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  color: #a9ff80;
+  box-shadow: 0px 1px 1px rgba(18, 18, 18, 0.08),
+    0px 5px 4px rgba(18, 18, 18, 0.08), 0px 12px 9px rgba(18, 18, 18, 0.08),
+    0px 20px 15px rgba(18, 18, 18, 0.08), 0px 32px 24px rgba(18, 18, 18, 0.08);
+}
+
+.navigation__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px -13px 17px rgba(18, 18, 18, 0.25),
+    0px -53px 70px rgba(18, 18, 18, 0.25),
+    0px -120px 157px rgba(18, 18, 18, 0.25);
 }
