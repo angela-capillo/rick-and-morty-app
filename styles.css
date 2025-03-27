@@ -10,23 +10,105 @@
 }
 
 :root {
-  --color-primary: #000000;
+  /* --color-primary: #000000;
   --color-secondary: #a1dd32;
-  --font-family: system-ui;
+  --font-family: system-ui; */
+}
+
+html, body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+html {
+  background-color: #181818;
 }
 
 body {
-  font-family: monospace;
-  color: var(--color-primary);
-  padding: 20px;
+  max-width: 420px;
+  background-image: url(./assets/images/rm_background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 main {
+  flex-grow: 1;
+  max-width: 100%;
+  height: 100%;
   display: flex;
+  margin-right: 24px auto;
+  margin-left: 24px auto;
   flex-direction: column;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 20px;
+  overflow-y: auto;
 }
 
 .title {
-  padding: 10px 0;
+  display: none;
+}
+
+.logo {
+  width: 300px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+svg {
+  width: 300px;
+  height: 180px;
+  animation-name: animate;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes animate {
+  0% {
+    filter: drop-shadow(0px 0px 1px #fff)
+    drop-shadow(0px 0px 3px #fff)
+    drop-shadow(0px 0px 10px #ff80b3)
+    drop-shadow(0px 0px 30px #ff4d94)
+    drop-shadow(0px 0px 50px #ff0066);
+  }
+
+  100% {
+    filter: drop-shadow(0px 0px 3px #fff)
+    drop-shadow(0px 0px 6px #fff)
+    drop-shadow(0px 0px 15px #ff80b3)
+    drop-shadow(0px 0px 40px #ff4d94)
+    drop-shadow(0px 0px 60px #ff0066); 
+  }
+}
+
+.style-metal {
+  border-radius: 9999px;
+  border: 4px solid grey;
+  background: linear-gradient(
+    45deg,
+    #999 5%,
+    #fff 20%,
+    #ccc 30%,
+    #ddd 50%,
+    #ccc 70%,
+    #fff 80%,
+    #999 95%
+  );
+  box-shadow: inset 0 0 8px #ccc;
+}
+
+.style-monitor {
+  background-color: #080A08;
+  border-radius: 24px;
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: #a9ff80;
 }
